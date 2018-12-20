@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--link rel="icon" href="../../favicon.ico"/-->
+
+    <title>Important Notice</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118027499-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-118027499-1');
+    </script>    
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Important Message
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">To all:</h5>
+                <p class="card-text" th:utext="${message}">...</p>
+            </div>
+            <form th:action="@{/updateMsg}" method="post">
+                <input type="hidden" id="systemMessage" name="systemMessage" th:value="${message}">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-4 center-block">
+                            <input type="submit" name="confirm-submit" id="confirm-submit" class="form-control btn btn-primary"
+                                value="Confirm">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script th:href="@{/js/bootstrap.js}"></script>
+</body>
+
+</html>
